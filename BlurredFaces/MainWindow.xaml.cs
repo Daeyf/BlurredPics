@@ -12,13 +12,13 @@ namespace BlurredFaces
     public partial class MainWindow : Window
     {
         private readonly DispatcherTimer _timer;
-        private int _remainingSeconds = 60;
+        private int _remainingSeconds = 20;
 
         private readonly List<ImageItem> _images = new();
         private int _currentIndex = 0;
 
-        // Anzahl der Stufen (60s / 5s = 12 Stufen)
-        private const int MaxLevel = 12;
+        // Anzahl der Stufen: 20 Sekunden => 20 Stufen (jede Sekunde eine Stufe)
+        private const int MaxLevel = 20;
 
         // Basis-Maximum für Blockgröße, abhängig von geladenem Bild
         private int _baseMaxBlock = 48;
@@ -173,7 +173,7 @@ namespace BlurredFaces
             TimerTextBlock.Text = TimeSpan.FromSeconds(_remainingSeconds).ToString(@"mm\:ss");
 
             // Update nur alle 5 Sekunden (oder bei 0) um Rechenlast zu verringern
-            if (_remainingSeconds == 0 || _remainingSeconds % 5 == 0)
+            if (_remainingSeconds == 0 || _remainingSeconds % 2 == 0)
             {
                 UpdatePixelation();
             }
@@ -187,7 +187,8 @@ namespace BlurredFaces
                 return;
             }
 
-            int level = _remainingSeconds <= 0 ? 0 : (int)Math.Ceiling(_remainingSeconds / 5.0); // 12..1
+            // Level entspricht verbleibenden Sekunden (20..1). Bei 0: kein Pixeln (original).
+            int level = _remainingSeconds <= 0 ? 0 : _remainingSeconds; // 20..1
             int blockSize = level == 0 ? 0 : Math.Max(1, (int)Math.Ceiling(_baseMaxBlock * level / (double)MaxLevel));
 
             if (blockSize <= 1)
@@ -329,7 +330,7 @@ namespace BlurredFaces
 
         private void ResetTimer()
         {
-            _remainingSeconds = 60;
+            _remainingSeconds = 20;
             UpdateTimerDisplay();
             _timer.Start();
         }

@@ -8,6 +8,133 @@
         Title="MainWindow" Height="450" Width="800"
         Background="#FF1B1B1B"
         Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="RoundArrowButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="185"/>
+            <Setter Property="Height" Value="64"/>
+            <Setter Property="Background" Value="#2ECC71"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Kleinerer runder Stil für Icon-Buttons -->
+        <Style x:Key="RoundIconButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundArrowButtonStyle}">
+            <Setter Property="Width" Value="48"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Neuer Stil: Kombinierter Icon+Text Button (pill-shaped) -->
+        <Style x:Key="RoundIconTextButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundIconButtonStyle}">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="120"/>
+            <Setter Property="Background" Value="#3498DB"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Neuer Stil: keine Hover-Hintergrundänderung -->
+        <Style x:Key="TransparentIconButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="6"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Keine Hintergrundänderung bei MouseOver/Pressed.
+                                 Nur leichte Opacity-Änderung bei Pressed bleibt -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Opacity" Value="0.85"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <!-- Oberer Bereich: 80% Platz für Bilder -->
@@ -40,17 +167,28 @@
         <!-- Timer rechts, vertical mittig -->
         <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!-- Verwende neuen Style, damit keine Hover-Farbe erscheint -->
                 <Button Name="DecreaseButton"
+                        Style="{StaticResource TransparentIconButtonStyle}"
                         Content="−"
-                        Width="32"
-                        Height="28"
+                        Width="48"
+                        Height="65"
                         Margin="0,0,8,0"
-                        Click="DecreaseButton_Click"/>
+                        Foreground="#C0392B"
+                        FontSize="40"
+                        FontWeight="Bold"
+                        Click="DecreaseButton_Click"
+                        Cursor="Hand"/>
                 <Button Name="IncreaseButton"
+                        Style="{StaticResource TransparentIconButtonStyle}"
                         Content="+"
-                        Width="32"
-                        Height="28"
-                        Click="IncreaseButton_Click"/>
+                        Width="48"
+                        Height="65"
+                        Foreground="#27AE60"
+                        FontSize="40"
+                        FontWeight="Bold"
+                        Click="IncreaseButton_Click"
+                        Cursor="Hand"/>
             </StackPanel>
 
             <TextBlock Name="TimerTextBlock"
@@ -60,15 +198,29 @@
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
+            <!-- Kombinierter Icon+Text Button -->
             <Button Name="RevealButton"
-                    Content="Auflösen"
-                    Width="100"
-                    Height="28"
+                    Style="{StaticResource RoundIconTextButtonStyle}"
+                    Background="#2980B9"
                     Margin="0,12,0,0"
-                    Click="RevealButton_Click"/>
+                    Click="RevealButton_Click"
+                    ToolTip="Auflösen">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="8,0">
+                    <Image Source="pack://siteoforigin:,,,/Icons/SolveIcon.png"
+                           Width="50"
+                           Height="50"
+                           Stretch="Uniform"
+                           Margin="0,0,8,0"/>
+                    <TextBlock Text="Auflösen"
+                               FontSize="20"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
 
-        <!-- Untere Leiste: Zurück (links), Beschreibung (mitte), Nächster (rechts) -->
+        <!-- Untere Leiste: großer Pfeil links (Zurück), Beschreibung (mitte), großer Pfeil rechts (Nächstes Bild) -->
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -76,14 +228,46 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Name="BackButton" Grid.Column="0" Content="Zurück" Width="100" Height="32" Click="BackButton_Click" />
+            <!-- Abgerundeter Zurück-Button als Pfeil nach links -->
+            <Button Name="BackButton"
+                    Grid.Column="0"
+                    Style="{StaticResource RoundArrowButtonStyle}"
+                    Background="#D35400"
+                    Click="BackButton_Click"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    ToolTip="Vorheriges Bild">
+                <TextBlock Text="◀ Vorheriges Bild"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"/>
+            </Button>
 
-            <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Label Name="DescriptionLabel" Content="???" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
                 <Label Name="CountLabel" Content="0 von 0" Foreground="#FFB0B0B0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Margin="0,4,0,0"/>
             </StackPanel>
 
-            <Button Name="NextButton" Grid.Column="2" Content="Nächster" Width="100" Height="32" Click="NextButton_Click" HorizontalAlignment="Right"/>
+            <!-- Großer abgerundeter grüner Pfeil als "Nächstes Bild" -->
+            <Button Name="NextButton"
+                    Grid.Column="2"
+                    Style="{StaticResource RoundArrowButtonStyle}"
+                    Background="#27AE60"
+                    Click="NextButton_Click"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    ToolTip="Nächstes Bild">
+                <TextBlock Text="Nächstes Bild ▶"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"/>
+            </Button>
         </Grid>
     </Grid>
 </Window>
