@@ -1,0 +1,89 @@
+﻿<Window x:Class="BlurredFaces.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlurredFaces"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Background="#FF1B1B1B"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Oberer Bereich: 80% Platz für Bilder -->
+            <RowDefinition Height="8*"/>
+            <!-- Unterer Bereich: Buttons / Beschreibung -->
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <!-- Linker breiter Bereich (80%) reserviert für Bilder -->
+            <ColumnDefinition Width="8*"/>
+            <!-- Rechter Bereich (20%) für Timer -->
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Platzhalter für Bilder (80% Fläche) -->
+        <Border Grid.Row="0" Grid.Column="0" Name="ImageArea"
+                Margin="10"
+                Background="Transparent"
+                BorderBrush="#333" BorderThickness="1"
+                CornerRadius="4">
+            <Grid>
+                <Image Name="MainImage"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <!-- Timer rechts, vertical mittig -->
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="DecreaseButton"
+                        Content="−"
+                        Width="32"
+                        Height="28"
+                        Margin="0,0,8,0"
+                        Click="DecreaseButton_Click"/>
+                <Button Name="IncreaseButton"
+                        Content="+"
+                        Width="32"
+                        Height="28"
+                        Click="IncreaseButton_Click"/>
+            </StackPanel>
+
+            <TextBlock Name="TimerTextBlock"
+                       Text="01:00"
+                       Foreground="White"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <Button Name="RevealButton"
+                    Content="Auflösen"
+                    Width="100"
+                    Height="28"
+                    Margin="0,12,0,0"
+                    Click="RevealButton_Click"/>
+        </StackPanel>
+
+        <!-- Untere Leiste: Zurück (links), Beschreibung (mitte), Nächster (rechts) -->
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="BackButton" Grid.Column="0" Content="Zurück" Width="100" Height="32" Click="BackButton_Click" />
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <Label Name="DescriptionLabel" Content="???" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+                <Label Name="CountLabel" Content="0 von 0" Foreground="#FFB0B0B0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Margin="0,4,0,0"/>
+            </StackPanel>
+
+            <Button Name="NextButton" Grid.Column="2" Content="Nächster" Width="100" Height="32" Click="NextButton_Click" HorizontalAlignment="Right"/>
+        </Grid>
+    </Grid>
+</Window>

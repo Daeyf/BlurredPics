@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2AD057-B567-4E07-9113-910E30666B7B}|BlurredFaces\\BlurredFaces.csproj|c:\\users\\thier\\onedrive\\dokumente\\privat\\baby\\spiel\\blurredfaces\\blurredfaces\\blurredfaces\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D2AD057-B567-4E07-9113-910E30666B7B}|BlurredFaces\\BlurredFaces.csproj|solutionrelative:blurredfaces\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2AD057-B567-4E07-9113-910E30666B7B}|BlurredFaces\\BlurredFaces.csproj|c:\\users\\thier\\onedrive\\dokumente\\privat\\baby\\spiel\\blurredfaces\\blurredfaces\\blurredfaces\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1D2AD057-B567-4E07-9113-910E30666B7B}|BlurredFaces\\BlurredFaces.csproj|solutionrelative:blurredfaces\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D2AD057-B567-4E07-9113-910E30666B7B}|BlurredFaces\\BlurredFaces.csproj|c:\\users\\thier\\onedrive\\dokumente\\privat\\baby\\spiel\\blurredfaces\\blurredfaces\\blurredfaces\\blurredfaces.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1D2AD057-B567-4E07-9113-910E30666B7B}|BlurredFaces\\BlurredFaces.csproj|solutionrelative:blurredfaces\\blurredfaces.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BlurredFaces.csproj",
+              "DocumentMoniker": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\BlurredFaces\\BlurredFaces.csproj",
+              "RelativeDocumentMoniker": "BlurredFaces\\BlurredFaces.csproj",
+              "ToolTip": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\BlurredFaces\\BlurredFaces.csproj",
+              "RelativeToolTip": "BlurredFaces\\BlurredFaces.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-22T21:43:17.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\BlurredFaces\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "BlurredFaces\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\BlurredFaces\\MainWindow.xaml",
+              "RelativeToolTip": "BlurredFaces\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-22T21:16:15.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\BlurredFaces\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "BlurredFaces\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\thier\\OneDrive\\Dokumente\\Privat\\Baby\\Spiel\\BlurredFaces\\BlurredFaces\\BlurredFaces\\MainWindow.xaml.cs",
+              "RelativeToolTip": "BlurredFaces\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAEABAAAAAAAAAAAlwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T21:16:15.256Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
